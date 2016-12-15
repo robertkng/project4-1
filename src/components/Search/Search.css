@@ -1,0 +1,19 @@
+#search {
+  text-align: center;
+
+}
+
+input {
+  height: 30px;
+  width: 260px;
+  font-size: 28px;
+}
+
+button {
+  height: 30px;
+  font-size: 20px;
+  background-color: rgba(37, 47, 61, .9);
+  color: #e6fff7;
+  padding: 4px;
+  font-weight: bold;
+}

@@ -1,0 +1,21 @@
+/*#itinerary {
+  text-align: right;
+}
+*/
+
+
+#user-itinerary {
+  height: 800px;
+  width: 500px;
+  font-size: 20px;
+}
+
+.itinerary {
+  /*left: 100%;*/
+  display: flex;
+  flex-direction: column;
+}
+
+#itinerary-title {
+  width: 500px;
+}

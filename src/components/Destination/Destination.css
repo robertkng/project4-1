@@ -1,0 +1,12 @@
+li {
+  font-size: 28px;
+}
+
+.results-container {
+    width: 300px;
+    height: 200px;
+    padding: 10px;
+    border: 12px solid red;
+    box-shadow: 20px 17px 5px 5px rgba(0,0,0,0.65);
+    margin: 20px;
+}
