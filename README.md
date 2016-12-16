@@ -20,7 +20,7 @@ Time constraint - limited traveling time
 Transport between destinations
 Discomfort of being in a foreign land not knowing the language nor which areas are safe.
 
-
+ 
 ### Wireframe
 ![wireframe](https://git.generalassemb.ly/storage/user/58/files/2966b972-bbff-11e6-897a-0daa9367640b)
 
