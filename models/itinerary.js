@@ -20,8 +20,9 @@ function addItinerary(req, res, next) {
 }
 
 function updateItineraryTitle(req, res, next) {
-  db.result(`UPDATE title FROM itinerary
-    WHERE id = $1;`, [req.params.id])
+  db.result(`UPDATE itinerary
+            SET title = $2
+            WHERE id = $1;`, [req.params.id, req.body.title, req.body.itinerary])
   .then(next())
   .catch(err => next(err));
 }
@@ -29,7 +30,7 @@ function updateItineraryTitle(req, res, next) {
 // function that deletes selected row from the database
 function deleteItinerary(req, res, next) {
   db.result(`DELETE FROM itinerary
-    WHERE id = $1;`, [req.params.id])
+            WHERE id = $1;`, [req.params.id])
   .then(next())
   .catch(err => next(err));
 }

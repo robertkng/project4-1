@@ -12,7 +12,7 @@ class Itinerary extends Component {
     title={mov.title}
     key={i}
     id={mov.id}
-    updateItineraryTitle={this.props.updateItineraryTitle}
+    updateTitle={this.props.updateTitle}
     deleteFromDb={this.props.deleteFromDb}
     />
     )

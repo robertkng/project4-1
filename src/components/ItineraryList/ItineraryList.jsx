@@ -9,7 +9,7 @@ class ItineraryList extends Component {
 
     <div className="your-itineraries">
       <h3>{this.props.title}</h3>
-      <button onClick={() => this.props.updateItineraryTitle(this.props.id)}>Update</button>
+      <button onClick={() => this.props.updateTitle(this.props.id)}>Update</button>
       <button onClick={() => this.props.deleteFromDb(this.props.id)}>Delete</button>
     </div>
     )
