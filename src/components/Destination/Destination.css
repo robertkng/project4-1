@@ -1,10 +1,10 @@
 li {
-  font-size: 28px;
+  font-size: 14px;
 }
 
 .results-container {
-    width: 300px;
-    height: 200px;
+    width: 186px;
+    height: 119px;
     padding: 10px;
     border: 12px solid rgb(78, 221, 224);
     box-shadow: 20px 17px 5px 5px rgba(0,0,0,0.65);
