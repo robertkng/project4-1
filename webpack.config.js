@@ -35,11 +35,12 @@ module.exports = {
     }),
     new ExtractTextPlugin('/css/[name].css', {
       allChunks: true
-    }),
-    new DotenvPlugin({
-        sample: './.env.default',
-        path: './.env'
     })
+    // ,
+    // new DotenvPlugin({
+    //     sample: './.env.default',
+    //     path: './.env'
+    // })
     // ,
     // new webpack.DefinePlugin({
     //   'process.env': {
