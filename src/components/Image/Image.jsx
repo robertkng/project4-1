@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-// render a video from what is searched, and only when a search is made
+// Render a video from what is searched, and only when a search is made
 export default class Images extends Component {
 
   render() {

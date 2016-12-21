@@ -81,8 +81,9 @@ footer {
   bottom: 0;
   background-color: black;
   height: 10vh;
-  width: 100vw;
+  width: 19vw;
   padding-top: 10px;
+  margin-left: 80%;
 }
 
 #open-chat {

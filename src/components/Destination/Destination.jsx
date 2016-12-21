@@ -3,12 +3,12 @@ import './Destination.css';
 
 class Destination extends Component {
 
-// render destinations once
+// Render destinations once
   componentWillMount() {
     this.props.getAllDestinations();
   }
 
-// function render the city, country, and activity from the database
+// Function render the city, country, and activity from the database
   showDestinations(destinations) {
     return destinations.map((render, index) => {
       return (
@@ -21,7 +21,7 @@ class Destination extends Component {
     });
   }
 
-// render the items from the database from the showDestinations function
+// Render the items from the database from the showDestinations function
   render() {
     const destinations = this.props.destinations;
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Search.css';
 
-// render input fields and run the search function when clicking the button
+// Render input fields and run the search function when clicking the button
 class Search extends Component {
   render() {
     return (
