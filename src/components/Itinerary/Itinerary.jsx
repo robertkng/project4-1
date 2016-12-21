@@ -42,18 +42,21 @@ class Itinerary extends Component {
       itinDescription: ''
     });
   }
+
 // Change the value of the name of itinerary to whatever is being typed out
   updateName(e) {
     this.setState({
       itinName: e.target.value
     })
   }
+
 // Change the value of the description to whatever is being typed out
   updateDescription(e) {
     this.setState({
       itinDescription: e.target.value
     })
   }
+
 // Add the title and itinerary onto the database
   addToDb(e) {
     fetch('/itinerary/itinerary', {
@@ -71,6 +74,7 @@ class Itinerary extends Component {
     })
     .catch(err => console.log(err));
   }
+
 // Render all saved itineraries
   getAllItineraries() {
     fetch(`/itinerary/itinerary`)
@@ -82,17 +86,22 @@ class Itinerary extends Component {
     })
     .catch(err => console.log(err));
   }
-// Delete any selected itineraries
+
+// delete any selected itineraries
   deleteFromDb(id) {
+    // console.log('deleteFromDb');
     fetch(`/itinerary/itinerary/${id}`, {
       method: 'DELETE'
     })
     .then(() => {
-// Filter and render any titles that do not match the id
-      const title = this.state.title.filter((mov) => {
+// filter and render any titles that do not match the id
+      const title = this.state.itinTitle.filter((mov) => {
         return mov.id !==id;
       });
       this.setState({ title });
+    })
+    .then((res) => {
+        this.getAllItineraries();
     })
     .catch(err => console.log(err));
   }
