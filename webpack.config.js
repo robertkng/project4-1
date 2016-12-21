@@ -34,18 +34,17 @@ module.exports = {
     }),
     new ExtractTextPlugin('/css/[name].css', {
       allChunks: true
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'CLIENT_ID': JSON.stringify('9debd6d8d3c9644df10d'),
+        'CLIENT_SECRET': JSON.stringify('e9bb5e577bdcc6b30c1bad26a095c627ebd2688d'),
+      }
     })
     // ,
     // new DotenvPlugin({
     //     sample: './.env.default',
     //     path: './.env'
-    // })
-    // ,
-    // new webpack.DefinePlugin({
-    //   'process.env': {
-    //     'CLIENT_ID': JSON.stringify('9debd6d8d3c9644df10d'),
-    //     'CLIENT_SECRET': JSON.stringify('e9bb5e577bdcc6b30c1bad26a095c627ebd2688d'),
-    //   }
     // })
   ],
 
