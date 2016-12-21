@@ -41,11 +41,6 @@ module.exports = {
         'CLIENT_SECRET': JSON.stringify('e9bb5e577bdcc6b30c1bad26a095c627ebd2688d'),
       }
     })
-    // ,
-    // new DotenvPlugin({
-    //     sample: './.env.default',
-    //     path: './.env'
-    // })
   ],
 
   module : {
