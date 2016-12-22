@@ -11,7 +11,7 @@ class Itinerary extends Component {
       itinTitle: [],
       itinName: '',
       itinDescription: '',
-      itinId: ''
+      itinId: '',
     };
     this.reset = this.reset.bind(this);
   }
@@ -24,13 +24,13 @@ class Itinerary extends Component {
       .then((result) => {
         this.setState({
           itinName: result.title,
-          itinDescription: result.itinerary
+          itinDescription: result.itinerary,
         });
       })
       .catch(err => console.log(err));
     }
     this.setState({
-      itinId: id
+      itinId: id,
     });
   }
 
@@ -39,29 +39,29 @@ class Itinerary extends Component {
     this.setState({
       itinId: '',
       itinName: '',
-      itinDescription: ''
+      itinDescription: '',
     });
   }
 
 // Change the value of the name of itinerary to whatever is being typed out
   updateName(e) {
     this.setState({
-      itinName: e.target.value
-    })
+      itinName: e.target.value,
+    });
   }
 
 // Change the value of the description to whatever is being typed out
   updateDescription(e) {
     this.setState({
-      itinDescription: e.target.value
-    })
+      itinDescription: e.target.value,
+    });
   }
 
 // Add the title and itinerary onto the database
   addToDb(e) {
     fetch('/itinerary/itinerary', {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       method: 'POST',
       body: JSON.stringify({
@@ -81,7 +81,7 @@ class Itinerary extends Component {
     .then(r => r.json())
     .then((data) => {
       this.setState({
-        itinTitle: data
+        itinTitle: data,
       });
     })
     .catch(err => console.log(err));
@@ -91,7 +91,7 @@ class Itinerary extends Component {
   deleteFromDb(id) {
     // console.log('deleteFromDb');
     fetch(`/itinerary/itinerary/${id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
     })
     .then(() => {
 // filter and render any titles that do not match the id
@@ -110,7 +110,7 @@ class Itinerary extends Component {
   updateItinerary() {
     fetch(`/itinerary/itinerary/${this.state.itinId}`, {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       method: 'PUT',
       body: JSON.stringify({
@@ -144,7 +144,7 @@ class Itinerary extends Component {
   }
 
 // Run the getAllItineraries function onload
-  componentWillMount(){
+  componentWillMount() {
     this.getAllItineraries();
   }
 
@@ -163,7 +163,7 @@ class Itinerary extends Component {
           placeholder="Name of itinerary"
           value={this.state.itinName}
           onChange={this.updateName.bind(this)}
-          />
+        />
         <br />
         <textarea
           id="user-itinerary"
@@ -175,17 +175,17 @@ class Itinerary extends Component {
         />
         {
           this.state.itinId ?
-          <div>
+            <div>
               <button onClick={this.updateItinerary.bind(this)}>UPDATE</button>
               <button onClick={() => this.reset()}>CANCEL</button>
-          </div>
-          :
-          <button onClick={this.addToDb.bind(this)}>SUBMIT ITINERARY</button>
+            </div>
+            :
+            <button onClick={this.addToDb.bind(this)}>SUBMIT ITINERARY</button>
         }
         <h3> Saved Itineraries </h3>
         {this.renderAllItineraries()}
       </div>
-    )
-  };
+    );
+  }
   }
 export default Itinerary;

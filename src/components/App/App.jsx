@@ -9,13 +9,13 @@ import './App.css';
 export default class App extends Component {
 
 // State prior to any component changes
-    constructor() {
+  constructor() {
     super();
     this.state = {
       searchTerm: '',
       destinations: [],
       result: {},
-      user: undefined
+      user: undefined,
     };
   }
 // Render all destinations from the database
@@ -24,7 +24,7 @@ export default class App extends Component {
     .then(r => r.json())
     .then((results) => {
       this.setState({
-        destinations: results.data
+        destinations: results.data,
       });
       // console.log(this.state);
     })
@@ -33,7 +33,7 @@ export default class App extends Component {
 // Change the value of the searchTerm to whatever is being typed out
   updateInput(e) {
     this.setState({
-      searchTerm: e.target.value
+      searchTerm: e.target.value,
     })
     console.log(this.state.searchTerm);
   }
@@ -50,19 +50,16 @@ export default class App extends Component {
 // Shutterstock API requires headers authorization to fetch data from the API
     const authParameters = {
       headers: {
-        Authorization: authorization()
+        Authorization: authorization(),
       }
     };
     const SHUTTERSTOCK_API_ENDPOINT = `https://api.shutterstock.com/v2/videos/search?per_page=1&query=${this.state.searchTerm}`;
-    // const SHUTTERSTOCK_API_ENDPOINT = `https://api.shutterstock.com/v2/images/search?per_page=1&query=${this.state.searchTerm}`;
     fetch(SHUTTERSTOCK_API_ENDPOINT, authParameters)
     .then(r => r.json())
     .then(result => {
-      // console.log(typeof result);
       console.log(result);
-      // console.log(result.data[0].assets);
       this.setState({
-        image: result.data[0].assets.preview_mp4.url
+        image: result.data[0].assets.preview_mp4.url,
         // image: result.data[0].assets.preview.url,
       });
     });
@@ -99,16 +96,16 @@ export default class App extends Component {
         </div>
         <div className="socket-container">
           <Socket
-          user={this.state.user}
+            user={this.state.user}
           />
         </div>
         <footer>
           <div
-              id="open-chat"
-              onClick={() => {
-                        document.querySelector('.message-popup').style.display='block';
-                      }}
-            >
+            id="open-chat"
+            onClick={() => {
+              document.querySelector('.message-popup').style.display="block";
+            }}
+          >
             MESSAGES
           </div>
         </footer>

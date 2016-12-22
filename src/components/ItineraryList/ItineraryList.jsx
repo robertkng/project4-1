@@ -5,10 +5,7 @@ class ItineraryList extends Component {
 
 // Invoke editItinerary function when called upon
   updateItin() {
-    const {
-      id,
-      editItinerary
-    } = this.props;
+    const { id, editItinerary } = this.props;
 
     editItinerary(id);
   }

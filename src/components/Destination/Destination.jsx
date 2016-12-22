@@ -27,11 +27,11 @@ class Destination extends Component {
 
     return (
       <div className="destinations">
-      <h3>Most popular destinations & activities</h3>
+        <h3>Most popular destinations & activities</h3>
         {this.showDestinations(destinations)}
       </div>
-    )
-  };
+    );
+  }
 }
 
 export default Destination;

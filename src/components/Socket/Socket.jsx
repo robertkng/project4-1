@@ -40,23 +40,23 @@ export default class Socket extends Component {
 
 // Render message box on the bottom right
   render() {
-    return(
-      <div className='message-popup'>
+    return (
+      <div className="message-popup">
         <div
-        className="message-header"
-        onClick={()=>{document.querySelector('.message-popup').style.display = "none"}}
+          className="message-header"
+          onClick={() => { document.querySelector('.message-popup').style.display = "none" }}
         ><span>CLOSE</span>
         </div>
         <div className="screen">
           <ul id="messages"></ul>
         </div>
-        <div className='socket-form'>
+        <div className="socket-form">
           <form onSubmit={event => this.handleSubmit(event)}>
-            <input id="clear" onChange={event => this.handleInputChange(event)}/>
-            <button>Send</button><br/>
+            <input id="clear" onChange={event => this.handleInputChange(event)} />
+            <button>Send</button><br />
           </form>
         </div>
       </div>
-    )
+    );
   }
 }

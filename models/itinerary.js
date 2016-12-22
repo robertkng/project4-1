@@ -52,5 +52,5 @@ module.exports = {
   getAllItineraries,
   updateItineraryTitle,
   deleteItinerary,
-  getItineraryById
+  getItineraryById,
 };
