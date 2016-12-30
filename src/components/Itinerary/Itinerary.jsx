@@ -71,6 +71,7 @@ class Itinerary extends Component {
     })
     .then((res) => {
       this.getAllItineraries();
+      this.reset();
     })
     .catch(err => console.log(err));
   }

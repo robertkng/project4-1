@@ -15,7 +15,6 @@ export default class App extends Component {
       searchTerm: '',
       destinations: [],
       result: {},
-      user: undefined,
     };
   }
 // Render all destinations from the database
@@ -34,9 +33,18 @@ export default class App extends Component {
   updateInput(e) {
     this.setState({
       searchTerm: e.target.value,
-    })
+    });
     console.log(this.state.searchTerm);
   }
+
+// Clear searchTerm
+  clear() {
+    this.setState({
+      searchTerm: '',
+    });
+    this.clear = this.clear.bind(this);
+  }
+
   searchImages(searchTerm) {
 // Set variable for API credentials
     const CLIENT_ID = process.env.CLIENT_ID;
@@ -60,10 +68,13 @@ export default class App extends Component {
       console.log(result);
       this.setState({
         image: result.data[0].assets.preview_mp4.url,
+        // searchTerm: '',
         // image: result.data[0].assets.preview.url,
       });
     });
   }
+
+
 // Props to be passed through respective components
   render() {
     return (
@@ -75,6 +86,7 @@ export default class App extends Component {
           userInput={this.updateInput.bind(this)}
           search={()=> this.searchImages()}
           result={this.state.result}
+
         />
         </div>
         <div id="container">
