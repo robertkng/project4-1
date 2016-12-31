@@ -178,7 +178,7 @@ class Itinerary extends Component {
           this.state.itinId ?
             <div>
               <button onClick={this.updateItinerary.bind(this)}>UPDATE</button>
-              <button onClick={() => this.reset()}>CANCEL</button>
+              <button onClick={this.reset.bind(this)}>CANCEL</button>
             </div>
             :
             <button onClick={this.addToDb.bind(this)}>SUBMIT ITINERARY</button>

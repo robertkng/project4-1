@@ -16,6 +16,7 @@ export default class App extends Component {
       destinations: [],
       result: {},
     };
+    this.reset = this.reset.bind(this);
   }
 // Render all destinations from the database
   getAllDestinations() {
@@ -38,11 +39,10 @@ export default class App extends Component {
   }
 
 // Clear searchTerm
-  clear() {
+  reset() {
     this.setState({
       searchTerm: '',
     });
-    this.clear = this.clear.bind(this);
   }
 
   searchImages(searchTerm) {
@@ -64,13 +64,14 @@ export default class App extends Component {
     const SHUTTERSTOCK_API_ENDPOINT = `https://api.shutterstock.com/v2/videos/search?per_page=1&query=${this.state.searchTerm}`;
     fetch(SHUTTERSTOCK_API_ENDPOINT, authParameters)
     .then(r => r.json())
-    .then(result => {
+    .then((result) => {
       console.log(result);
       this.setState({
         image: result.data[0].assets.preview_mp4.url,
-        // searchTerm: '',
+        searchTerm: '',
         // image: result.data[0].assets.preview.url,
       });
+      this.reset();
     });
   }
 
@@ -84,9 +85,8 @@ export default class App extends Component {
         <Search
           name={this.state.searchTerm}
           userInput={this.updateInput.bind(this)}
-          search={()=> this.searchImages()}
+          search={this.searchImages.bind(this)}
           result={this.state.result}
-
         />
         </div>
         <div id="container">
