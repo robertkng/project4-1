@@ -8,12 +8,10 @@ class Search extends Component {
       <div id="search">
         <input
           type="text"
-          name={this.props.name}
-          value={this.props.input}
-          onChange={this.props.userInput}
+          value={this.props.name}
+          onChange={this.props.updateInput}
         />
         <button onClick={this.props.search}>SEARCH CITY OR COUNTRY</button>
-
       </div>
     );
   }
