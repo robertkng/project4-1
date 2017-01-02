@@ -74,6 +74,39 @@ export default class App extends Component {
     });
   }
 
+  hitEnter(event){
+    if(event.keyCode === 13){
+
+    // Set variable for API credentials
+    const CLIENT_ID = process.env.CLIENT_ID;
+    const CLIENT_SECRET = process.env.CLIENT_SECRET;
+
+    // In the context of a HTTP transaction, basic access authentication is a method
+    // for a HTTP user agent to provide a user name and password when making a request.
+    // window.btoa encodes API credentials just like .env.
+    // source: https://developer.mozilla.org/en-US/docs/Web/API/WindowBase64/btoa
+    const authorization = () => `Basic ${window.btoa(`${CLIENT_ID}:${CLIENT_SECRET}`)}`;
+
+    // Shutterstock API requires headers authorization to fetch data from the API
+    const authParameters = {
+      headers: {
+        Authorization: authorization(),
+      },
+    };
+    const SHUTTERSTOCK_API_ENDPOINT = `https://api.shutterstock.com/v2/videos/search?per_page=1&query=${this.state.searchTerm}`;
+
+    fetch(SHUTTERSTOCK_API_ENDPOINT, authParameters)
+    .then(r => r.json())
+    .then((result) => {
+      this.setState({
+        image: result.data[0].assets.preview_mp4.url,
+        searchTerm: '',
+      });
+      this.reset();
+    });
+    }
+  }
+
 
 // Props to be passed through respective components
   render() {
@@ -86,6 +119,7 @@ export default class App extends Component {
             updateInput={this.updateInput.bind(this)}
             search={this.searchImages.bind(this)}
             result={this.state.result}
+            hitEnter={this.hitEnter.bind(this)}
           />
         </div>
         <div id="container">
