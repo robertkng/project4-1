@@ -1,3 +1,12 @@
+// webpack takes modules with dependencies and
+// generates static assets representing those modules.
+// Split the dependency tree into chunks loaded on demand
+// Keep initial loading time low
+// Every static asset should be able to be a module
+// Ability to integrate 3rd-party libraries as modules
+// Ability to customize nearly every part of the module bundler
+// Suited for big projects
+
 'use strict'
 const webpack           = require('webpack');
 const path              = require('path');

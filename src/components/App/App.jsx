@@ -1,4 +1,4 @@
-// Require classes from files that props will be passed through
+// ES6 syntax to require classes from files that props will be passed through
 import React, { Component } from 'react';
 import Search from '../Search/Search.jsx';
 import Image from '../Image/Image.jsx';
@@ -19,7 +19,8 @@ export default class App extends Component {
     };
     this.reset = this.reset.bind(this);
   }
-  // Render all destinations from the database
+
+// Render all destinations from the database
   getAllDestinations() {
     fetch('/destinations')
     .then(r => r.json())
@@ -31,6 +32,7 @@ export default class App extends Component {
     })
     .catch(err => err);
   }
+
   // Change the value of the searchTerm to whatever is being typed out
   updateInput(e) {
     this.setState({

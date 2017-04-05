@@ -3,6 +3,7 @@ import './Socket.css';
 
 // Credit to Sam for helping me out with socket.io
 export default class Socket extends Component {
+  // Function called after render method is executed
   componentWillMount() {
     this.socketFunction();
   }
@@ -22,6 +23,7 @@ export default class Socket extends Component {
 
 // Function that sends the messages, then clears the input box afterwards
   handleSubmit(e) {
+// Prevents function from running
     e.preventDefault();
     const socket = io();
     const clear = document.getElementById('clear');

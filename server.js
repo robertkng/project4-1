@@ -6,7 +6,7 @@ require('dotenv').config({ silent: true });
 const express       = require('express');
 const logger        = require('morgan');
 const path          = require('path');
-const cookieParser  = require('cookie-parser');
+// const cookieParser  = require('cookie-parser');
 const bodyParser    = require('body-parser');
 const app           = express();
 const PORT          = process.argv[2] || process.env.PORT || 3000;
@@ -20,13 +20,13 @@ const io            = require('socket.io')(http);
 
 // Emit event to socket on 'connection'
 io.on('connection', socket => {
-  // console.log('new user is available');
+console.log('new user is available');
 // 'server-chat' socket message received from client
   socket.on('server-chat', msg => {
-    // console.log('chat: ' + msg);
+// console.log('chat: ' + msg);
 // Anyone listening to the 'chatroom' socket can view the message
 // sends the message to all the other clients except the newly created connection
-    socket.broadcast.emit('chatroom', {msg : msg});
+    socket.broadcast.emit('chatroom', { msg: msg });
   });
   socket.on('disconnect', () => console.log('user no longer available'));
 });
@@ -39,8 +39,8 @@ app.use(logger('dev'));
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// Parse cookie value
-app.use(cookieParser());
+// Parse cookie value in client and server transaction
+// app.use(cookieParser());
 
 // Parse data from fetch, to send as a JSON object
 app.use(bodyParser.json());
